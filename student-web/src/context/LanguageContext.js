@@ -20,3 +20,4 @@ const direction = language === 'ar' ? 'rtl' : 'ltr';
 export function useLanguage() {
   return useContext(LanguageContext);
 }*/
+

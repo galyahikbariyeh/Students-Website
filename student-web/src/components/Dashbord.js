@@ -27,6 +27,7 @@ import { useStudents } from '../context/studentContext';
 import { useAuth } from '../context/AuthContext';
 import { useThemeMode } from '../context/ThemeContext';
 import { useMemo } from 'react';
+
 const NAVIGATION = [
   {
     kind: 'header',
@@ -139,12 +140,14 @@ function DashboardLayoutSlots(props) {
               </Typography>
             </Box>
           )}
+         
 
           {router.pathname === '/students' && <StudentsPage />}
           {router.pathname === '/settings' && <Settings />}
         </DashboardLayout>
       </AppProvider>
     </DemoProvider>
+    
   );
 }
 

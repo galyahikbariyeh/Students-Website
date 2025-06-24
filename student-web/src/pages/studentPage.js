@@ -16,6 +16,7 @@ import {
   Paper,
   IconButton,
 } from '@mui/material';
+
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { useStudents } from '../context/studentContext';
@@ -40,7 +41,7 @@ export default function StudentsPage() {
   const [level, setLevel] = useState('');
   const [open, setOpen] = useState(false);
   const [editedIndex, setEditedIndex] = useState(null);
-
+ 
   const handleOpen = () => setOpen(true);
   const handleClose = () => {
     setOpen(false);
@@ -170,6 +171,7 @@ export default function StudentsPage() {
           </Box>
         </Fade>
       </Modal>
+      
     </Box>
   );
 }

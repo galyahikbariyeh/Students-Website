@@ -4,9 +4,11 @@ import {
   Typography,
   Paper,
   Stack,
+  Button,
   Switch,
   FormControlLabel,
 } from '@mui/material';
+
 
 import LightModeIcon from '@mui/icons-material/LightMode';
 import DarkModeIcon from '@mui/icons-material/DarkMode';
@@ -42,9 +44,11 @@ export default function SettingsPage() {
           />
         </Stack>
       </Paper>
+      
     </Box>
   );
 }
+
 
 
 

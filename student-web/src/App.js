@@ -11,12 +11,14 @@ import { StudentProvider } from './context/studentContext.js';
 import { AuthProvider } from './context/AuthContext';
 import { ThemeModeProvider } from './context/ThemeContext.js';
 import SettingsPage from './pages/settingPage.js';
-import { LanguageProvider } from './context/LanguageContext.js';
+
 import ButtonAppBar from './components/NavBar.js';
 
 function App() {
   return (
      <BrowserRouter>
+    
+
    <ThemeModeProvider> 
     <AuthProvider>
        <StudentProvider>
@@ -34,6 +36,8 @@ function App() {
     </StudentProvider>
     </AuthProvider>
     </ThemeModeProvider>
+   
+
     </BrowserRouter>
       
   

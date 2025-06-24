@@ -39,7 +39,7 @@ export default function Login() {
     >
       <Paper elevation={3} sx={{ p: 4, width: 350 }}>
         <Typography variant="h5" gutterBottom>
-          Login
+          Login form
         </Typography>
         <form onSubmit={handleSubmit}>
           <TextField
