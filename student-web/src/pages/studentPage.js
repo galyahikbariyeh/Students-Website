@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
 import {
   Box,
   Button,
@@ -16,7 +16,6 @@ import {
   Paper,
   IconButton,
 } from '@mui/material';
-
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { useStudents } from '../context/studentContext';
@@ -41,17 +40,20 @@ export default function StudentsPage() {
   const [level, setLevel] = useState('');
   const [open, setOpen] = useState(false);
   const [editedIndex, setEditedIndex] = useState(null);
- 
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => {
+
+  const handleOpen = useCallback(() => {
+    setOpen(true);
+  }, []);
+
+  const handleClose = useCallback(() => {
     setOpen(false);
     setEditedIndex(null);
     setUsername('');
     setAge('');
     setLevel('');
-  };
+  }, []);
 
-  const handleSubmit = (event) => {
+  const handleSubmit = useCallback((event) => {
     event.preventDefault();
 
     const newStudent = { name: username, age: Number(age), level };
@@ -63,20 +65,20 @@ export default function StudentsPage() {
     }
 
     handleClose();
-  };
+  }, [username, age, level, editedIndex, dispatch, handleClose]);
 
-  const handleDelete = (index) => {
+  const handleDelete = useCallback((index) => {
     dispatch({ type: 'DELETE', index });
-  };
+  }, [dispatch]);
 
-  const handleEdit = (index) => {
+  const handleEdit = useCallback((index) => {
     const student = students[index];
     setUsername(student.name);
     setAge(student.age);
     setLevel(student.level);
     setEditedIndex(index);
     handleOpen();
-  };
+  }, [students, handleOpen]);
 
   return (
     <Box sx={{ p: 4 }}>
@@ -125,7 +127,6 @@ export default function StudentsPage() {
         </Table>
       </TableContainer>
 
-     
       <Modal
         open={open}
         onClose={handleClose}
@@ -171,7 +172,7 @@ export default function StudentsPage() {
           </Box>
         </Fade>
       </Modal>
-      
     </Box>
   );
 }
+
